@@ -297,9 +297,7 @@ function splitPolygonIntoChunks(coords) {
     const totalTiles = tilesX * tilesY;
 
     let cols = 1, rows = 1;
-    if (totalTiles > 36) { cols = 3; rows = 2; }
-    else if (totalTiles > 16) { cols = 2; rows = 2; }
-    else if (totalTiles > 4) { cols = 2; rows = 1; }
+    if (totalTiles > 4) { cols = 2; rows = 2; }   // 4 chunks → 4 Spaces بالتوازي
 
     const chunks = [];
     const dLng = (maxLng - minLng) / cols;
