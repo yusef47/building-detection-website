@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏗️ BuildingAI — كشف المباني بالذكاء الاصطناعي</title>
+    <meta name="description"
+        content="اكتشف المباني من صور الأقمار الصناعية باستخدام الذكاء الاصطناعي. ارسم منطقة على الخريطة واحصل على النتائج فوراً.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="nav-logo">🏗️</span>
+                <span class="nav-name">Building<span class="accent">AI</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">المميزات</a>
+                <a href="#map-section">الخريطة</a>
+                <a href="#stats-section">الإحصائيات</a>
+                <a href="https://github.com" target="_blank" class="nav-btn">GitHub ↗</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Mask R-CNN V5 — 1.42M مبنى للتدريب</span>
+            </div>
+            <h1 class="hero-title">
+                اكتشف <span class="gradient-text">المباني</span><br>
+                من صور الأقمار الصناعية
+            </h1>
+            <p class="hero-subtitle">
+                نظام ذكاء اصطناعي متقدم يكشف المباني ويحدد حدودها بدقة عالية.
+                <br>ارسم منطقة على الخريطة واحصل على النتائج في ثوانٍ.
+            </p>
+            <div class="hero-buttons">
+                <a href="#map-section" class="btn btn-primary">
+                    <span>🗺️</span> جرّب الآن
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <span>📖</span> اعرف أكثر
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="1420000">0</span>
+                    <span class="hero-stat-label">مبنى للتدريب</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="7">0</span>
+                    <span class="hero-stat-label">مناطق مختلفة</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="21451">0</span>
+                    <span class="hero-stat-label">صورة تدريب</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">لماذا <span class="gradient-text">BuildingAI</span>؟</h2>
+            <p class="section-subtitle">تقنيات متقدمة لكشف المباني بدقة عالية</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Mask R-CNN</h3>
+                    <p>نموذج Instance Segmentation متقدم مبني على ResNet-50 FPN مع Detectron2</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>خريطة تفاعلية</h3>
+                    <p>ارسم مضلع أو مستطيل على الخريطة وشاهد المباني المكتشفة فوراً</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>1.42M مبنى</h3>
+                    <p>مدرب على أكثر من مليون ونصف مبنى من 7 مناطق مختلفة في مصر</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>سريع</h3>
+                    <p>يكتشف آلاف المباني في ثوانٍ معدودة مع إزالة التكرار تلقائياً</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📐</div>
+                    <h3>Instance Segmentation</h3>
+                    <p>يحدد حدود كل مبنى بشكل منفصل مع درجة الثقة لكل مبنى</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📥</div>
+                    <h3>تصدير GeoJSON</h3>
+                    <p>حمّل النتائج كملف GeoJSON جاهز للاستخدام في GIS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MAP SECTION ========== -->
+    <section id="map-section">
+        <div class="container">
+            <h2 class="section-title">🗺️ اكتشف <span class="gradient-text">المباني</span></h2>
+            <p class="section-subtitle">ارسم مضلع أو مستطيل على الخريطة ثم اضغط "كشف المباني"</p>
+
+            <div class="map-app">
+                <!-- Controls Bar -->
+                <div class="map-controls">
+                    <div class="controls-right">
+                        <button id="detect-btn" class="btn btn-detect" onclick="detectBuildings()" disabled>
+                            <span class="btn-icon">🚀</span>
+                            <span class="btn-text">كشف المباني</span>
+                        </button>
+                        <button class="btn btn-clear" onclick="clearDrawing()">
+                            <span>🗑️</span> مسح
+                        </button>
+                    </div>
+                    <div class="controls-center">
+                        <div id="status-container" class="status-container">
+                            <div id="status-dot" class="status-dot status-idle"></div>
+                            <span id="status-text">ارسم منطقة على الخريطة...</span>
+                        </div>
+                    </div>
+                    <div class="controls-left">
+                        <label class="threshold-label">
+                            🎚️ الحد الأدنى:
+                            <input id="threshold" type="number" value="0.5" min="0.1" max="0.9" step="0.05">
+                        </label>
+                        <div id="tile-estimate" class="tile-estimate"></div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div id="map" class="map-container"></div>
+
+                <!-- Progress Bar -->
+                <div id="progress-container" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="progress-text" class="progress-text">جاري التحليل...</span>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div id="results-panel" class="results-panel" style="display: none;">
+                <h3 class="results-title">📊 النتائج</h3>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <span class="result-icon">🏘️</span>
+                        <span id="result-buildings" class="result-number">0</span>
+                        <span class="result-label">مبنى</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-icon">🗺️</span>
+                        <span id="result-tiles" class="result-number">0</span>
+                        <span class="result-label">Tile</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-icon">⏱️</span>
+                        <span id="result-time" class="result-number">0s</span>
+                        <span class="result-label">الوقت</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-icon">🔄</span>
+                        <span id="result-duplicates" class="result-number">0</span>
+                        <span class="result-label">مكرر محذوف</span>
+                    </div>
+                </div>
+                <button id="download-btn" class="btn btn-download" onclick="downloadGeoJSON()">
+                    📥 تحميل GeoJSON
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATS SECTION ========== -->
+    <section id="stats-section">
+        <div class="container">
+            <h2 class="section-title">📊 تطور <span class="gradient-text">النموذج</span></h2>
+            <p class="section-subtitle">من V1 إلى V5 — رحلة التحسين المستمر</p>
+
+            <div class="versions-timeline">
+                <div class="version-card version-old">
+                    <div class="version-badge">V1</div>
+                    <h4>YOLOv8 — مبنى واحد</h4>
+                    <p>3,489 مبنى • 95% دقة</p>
+                    <div class="version-bar" style="--width: 95%"></div>
+                </div>
+                <div class="version-card version-old">
+                    <div class="version-badge">V2</div>
+                    <h4>YOLOv8 — مباني متعددة</h4>
+                    <p>217K مبنى • Proof of Concept</p>
+                    <div class="version-bar" style="--width: 28%"></div>
+                </div>
+                <div class="version-card version-old">
+                    <div class="version-badge">V3</div>
+                    <h4>Mask R-CNN — 3 مناطق</h4>
+                    <p>77K مبنى • 27.3% Segm AP</p>
+                    <div class="version-bar" style="--width: 45%"></div>
+                </div>
+                <div class="version-card version-failed">
+                    <div class="version-badge">V4</div>
+                    <h4>Mask R-CNN — فشل ❌</h4>
+                    <p>780K مبنى • Backbone مجمد</p>
+                    <div class="version-bar" style="--width: 30%"></div>
+                </div>
+                <div class="version-card version-current">
+                    <div class="version-badge">V5 🔥</div>
+                    <h4>Mask R-CNN — الحالي</h4>
+                    <p>1.42M مبنى • 7 مناطق • MapFlow</p>
+                    <div class="version-bar" style="--width: 70%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="nav-logo">🏗️</span>
+                    <span class="nav-name">Building<span class="accent">AI</span></span>
+                    <p class="footer-desc">نظام كشف المباني بالذكاء الاصطناعي</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط</h4>
+                    <a href="#features">المميزات</a>
+                    <a href="#map-section">الخريطة</a>
+                    <a href="#stats-section">الإحصائيات</a>
+                </div>
+                <div class="footer-links">
+                    <h4>تقني</h4>
+                    <a href="#">Detectron2</a>
+                    <a href="#">Mask R-CNN</a>
+                    <a href="#">ResNet-50 FPN</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 BuildingAI. مبني بـ ❤️ باستخدام Mask R-CNN + Detectron2</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
